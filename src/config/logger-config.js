@@ -1,0 +1,21 @@
+const { createLogger, format, transports } = require('winston');
+const { combine, timestamp, label, printf, errors } = format;
+
+const CustomFormat = printf(( { level, message, timestamp } ) => {
+    return `${timestamp} : ${level}: ${message}`;
+});
+
+
+const logger = createLogger({
+    format: combine(
+    errors({ stack: true }),
+    timestamp({ format: 'YY-MM-DD HH:mm:ss' }),
+    CustomFormat    
+  ),
+  transports: [
+        new transports.Console(),
+        new transports.File({filename: 'combined.log'})
+  ]
+});
+
+module.exports = logger;
