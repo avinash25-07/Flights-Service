@@ -40,7 +40,7 @@ Base path: `/api`
   Request body:
   ```json
   {
-    "modelNumber": "A320",
+    "modelNumber": "airbus a320",
     "capacity": 180
   }
   ```

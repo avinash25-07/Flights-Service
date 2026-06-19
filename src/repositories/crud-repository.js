@@ -1,5 +1,5 @@
-const { Logger } = require("sequelize/lib/utils/logger");
-const { logger } = require("../config");
+// const { Logger } = require("sequelize/lib/utils/logger");
+const { Logger } = require("../config");
 
 
 class CrudRepository {
@@ -8,13 +8,10 @@ class CrudRepository {
     }
 
     async create(data) {
-        try {
-            const response = await this.model.create(data);
-            return response;
-        } catch (error) {
-            Logger.error("something went wrong in the crud repo: create");
-            throw error;
-        }
+        // console.log("inside repository");
+        const response = await this.model.create(data);
+        return response;
+       
     }
 
     async destroy(data) {
